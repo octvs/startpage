@@ -22,18 +22,18 @@
 }
 
 [data-theme="dark"] {
-    --text: #F5F5F5;
+    --text: #f5f5f5;
     --bg-color: #141414;
 
-    --input-color: #EBDFDF;
+    --input-color: #ebdfdf;
     --input-bg: #1f1e1e;
     --input-border: #d6d4d4;
 
     --switch: #ffc400;
-    --switch-text: #F5F5F5;
+    --switch-text: #f5f5f5;
 
     --selection-bg: rgb(32, 35, 41);
-    --selection-text: #FFA000;
+    --selection-text: #ffa000;
 
     --menu-bg: #2e2e2e;
 }
@@ -49,17 +49,17 @@
 }
 
 body {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     background: var(--bg-color);
 }
 
-@media(max-width: 1080px) {
+@media (max-width: 1080px) {
     html {
         font-size: 90%;
     }
 }
 
-@media(max-width: 720px) {
+@media (max-width: 720px) {
     html {
         font-size: 82%;
     }
