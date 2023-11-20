@@ -19,7 +19,8 @@ document.addEventListener("keyup", (event) => {
 });
 
 function search(value) {
-    let search_service = document.getElementById("search_select").value;
+    // TODO: turn this into a config item
+    search_service = "https://www.google.com/search?q=";
 
     if (search_service.match("startpage")) {
         let url = search_service.replace("SEARCH", value);

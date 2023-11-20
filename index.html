@@ -1,100 +1,30 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-        />
-        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
 
-        <link rel="stylesheet" href="css/global.css" />
-        <link rel="stylesheet" href="css/index.css" />
-        <link rel="stylesheet" href="css/switch.css" />
-        <link rel="stylesheet" href="css/menu.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap"
-            rel="stylesheet"
-        />
+    <title>startpage</title>
+  </head>
 
-        <title>Ropoko | Inicio</title>
-    </head>
+  <body>
+    <div class="container">
+      <h2 id="message"></h2>
+      <div id="clock"></div>
+      <div id="search">
+        <input id="input_search" type="text" />
+      </div>
+    </div>
 
-    <body>
-        <div id="sideNav" class="sidenav">
-            <header>
-                <a href="javascript:void(0)" onclick="closeNav()"> &times; </a>
-            </header>
-
-            <main>
-                <div class="item">
-                    <h3>Themes:</h3>
-                    <!-- Switch theme -->
-                    <div class="theme-switch-wrapper theme-switch">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox" />
-                            <div class="slider round"></div>
-                        </label>
-                    </div>
-                </div>
-
-                <hr />
-
-                <div class="item">
-                    <h3>Search:</h3>
-                    <!-- Search service -->
-                    <select
-                        name="search"
-                        id="search_select"
-                        onchange="saveService()"
-                    >
-                        <option value="https://duckduckgo.com/?q=">
-                            DuckduckGo
-                        </option>
-                        <option value="https://www.google.com/search?q=">
-                            Google
-                        </option>
-                        <option
-                            value="https://www.startpage.com/do/search?q=SEARCH&segment=startpage.vivaldi"
-                        >
-                            Startpage
-                        </option>
-                        <option
-                            value="https://www.ecosia.org/search?tt=dccf112d&q="
-                        >
-                            Ecosia
-                        </option>
-                        <option
-                            value="https://www.bing.com/search?FORM=INCOH2&PC=IFJ1&PTAG=ICO-c9d0fc87&q="
-                        >
-                            Bing
-                        </option>
-                    </select>
-                </div>
-            </main>
-
-            <footer>
-                <p>Made with love by Ropoko ❤</p>
-            </footer>
-        </div>
-
-        <span onclick="openNav()"> &#8801; </span>
-
-        <div class="container">
-            <h2 id="message"></h2>
-            <div id="clock"></div>
-            <div id="search">
-                <input id="input_search" type="text" />
-            </div>
-        </div>
-
-        <script type="text/javascript" src="js/clock.js"></script>
-        <script type="text/javascript" src="js/search.js"></script>
-        <script type="text/javascript" src="js/toggleTheme.js"></script>
-        <script type="text/javascript" src="js/menu.js"></script>
-        <script type="text/javascript" src="js/search-services.js"></script>
-        <script type="text/javascript" src="js/loader.js"></script>
-    </body>
+    <script type="text/javascript" src="js/clock.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+    <script type="text/javascript" src="js/loader.js"></script>
+  </body>
 </html>
