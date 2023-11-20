@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #f5f5f5;
+    --bg-color: #141414;
+
+    --input-color: #ebdfdf;
+    --input-bg: #1f1e1e;
+    --input-border: #d6d4d4;
+
+    --selection-bg: rgb(32, 35, 41);
+    --selection-text: #ffa000;
+}
+
+@media (prefers-color-scheme: light) {
+    /* somehow not working  */
+    --text: #1f1e1e;
+    --bg-color: #e9bcca;
+
+    --input-color: #1b1919;
+    --input-bg: #ececec;
+    --input-border: #1f1e1e;
+
+    --selection-bg: #2d56c7;
+    --selection-text: #ffffff;
+}
+
+::-moz-selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
+}
+
+body {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--bg-color);
+}
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 82%;
+    }
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    flex-direction: column;
+    color: var(--text);
+}
+
+#search input {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 2rem;
+
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--input-color);
+}
+
+#search input:focus {
+    outline: 1px solid var(--input-border);
+}
+
+#search ul img {
+    width: 30px;
+}
+
+#clock {
+    font-size: 9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+</style>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <title>startpage</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 id="message"></h2>
+      <div id="clock"></div>
+      <div id="search">
+        <input id="input_search" type="text">
+      </div>
+    </div>
+
+    <script type="text/javascript">let message = "";
+
+function getTime() {
+    let date = new Date(),
+        min = date.getMinutes(),
+        hour = date.getHours();
+
+    if (hour >= 00 && hour < 5) {
+        message = "Good Night!";
+    } else if (hour >= 5 && hour < 12) {
+        message = "Good Morning!";
+    } else if (hour >= 12 && hour < 19) {
+        message = "Good Afternoon!";
+    } else if (hour >= 19) {
+        message = "Good Evening!";
+    }
+
+    return (
+        (hour < 10 ? "0" + hour : hour) + ":" + (min < 10 ? "0" + min : min)
+    );
+}
+
+function defineMessage() {
+    return message;
+}
+</script>
+    <script type="text/javascript">const input = document.getElementById("input_search");
+
+document.addEventListener("keyup", (event) => {
+    if (event.keyCode == 13) {
+        let value = input.value;
+
+        if (value.length != 0) {
+            search(value);
+        }
+    } else {
+        input.focus();
+    }
+});
+
+document.addEventListener("keyup", (event) => {
+    if (event.keyCode == 27) {
+        input.value = "";
+    }
+});
+
+function search(value) {
+    // TODO: turn this into a config item
+    search_service = "https://www.google.com/search?q=";
+
+    if (search_service.match("startpage")) {
+        let url = search_service.replace("SEARCH", value);
+        window.location = url;
+
+        return;
+    }
+
+    window.location = search_service + value;
+}
+</script>
+    <script type="text/javascript">window.onload = () => {
+    document.getElementById("input_search").focus();
+
+    document.getElementById("clock").innerHTML = getTime();
+    document.getElementById("message").innerText = defineMessage();
+
+    // Set clock interval to tick clock
+    setInterval(() => {
+        document.getElementById("clock").innerHTML = getTime();
+    }, 30000);
+};
+</script>
+  </body>
+</html>
+
